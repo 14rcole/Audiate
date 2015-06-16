@@ -5,4 +5,4 @@ Audio Fingerprinting algorithm implemented in the following languages
 Java EE
 
 # Future
-May be implemented in Other languages in the future, namely JavaScript
+May be implemented in Other languages in the future, namely C/C++
