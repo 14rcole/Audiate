@@ -25,7 +25,7 @@ public class FingerprintDemo{
 		String filename = "Most Beautiful Girl in the Room.wav";
 
 		// create a wave object
-		Wave wave = new Wave("Audio Files/"+filename);
+		Wave wave = new Wave("audio_work/songs/"+filename);
 
 		// get the fingerprint
 		byte[] fingerprint=wave.getFingerprint();

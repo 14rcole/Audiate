@@ -182,37 +182,5 @@ public class Spectrogram{
 	public double[][] getNormalizedSpectrogramData(){
 		return spectrogram;
 	}
-	
-	/**
-	 * Get spectrogram: spectrogram[time][frequency]=intensity
-	 * 
-	 * @return	absolute spectrogram
-	 */
-	public double[][] getAbsoluteSpectrogramData(){
-		return absoluteSpectrogram;
-	}
 
-	public int getNumFrames(){
-		return numFrames;
-	}
-	
-	public int getFramesPerSecond(){
-		return framesPerSecond;
-	}
-	
-	public int getNumFrequencyUnit(){
-		return numFrequencyUnit;
-	}
-	
-	public double getUnitFrequency(){
-		return unitFrequency;
-	}
-
-	public int getFftSampleSize() {
-		return fftSampleSize;
-	}
-
-	public int getOverlapFactor() {
-		return overlapFactor;
-	}
 }

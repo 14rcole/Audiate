@@ -66,14 +66,6 @@ public class FingerprintProperties{
 		return numFilterBanks;
 	}
 
-	public int getUpperBoundedFrequency() {
-		return upperBoundedFrequency;
-	}
-
-	public int getLowerBoundedFrequency() {
-		return lowerBoundedFrequency;
-	}
-
 	public int getFps() {
 		return fps;
 	}
@@ -82,9 +74,11 @@ public class FingerprintProperties{
 		return refMaxActivePairs;
 	}
 
-	public int getSampleMaxActivePairs() {
-		return sampleMaxActivePairs;
-	}
+// --Commented out by Inspection START (7/2/15 9:33 PM):
+//	public int getSampleMaxActivePairs() {
+//		return sampleMaxActivePairs;
+//	}
+// --Commented out by Inspection STOP (7/2/15 9:33 PM)
 
 	public int getNumAnchorPointsPerInterval() {
 		return numAnchorPointsPerInterval;
@@ -101,16 +95,9 @@ public class FingerprintProperties{
 	public int getNumFrequencyUnits() {
 		return numFrequencyUnits;
 	}
-	
-	public int getMaxPossiblePairHashcode(){
-		return maxTargetZoneDistance*numFrequencyUnits*numFrequencyUnits+numFrequencyUnits*numFrequencyUnits+numFrequencyUnits;
-	}
 
 	public int getSampleRate() {
 		return sampleRate;
 	}
 
-	public int getNumFramesInOneSecond() {
-		return numFramesInOneSecond;
-	}
 }

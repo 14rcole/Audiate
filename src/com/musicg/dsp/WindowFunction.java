@@ -35,10 +35,6 @@ public class WindowFunction {
 	public WindowFunction() {
 	}
 
-	public void setWindowType(int wt) {
-		windowType = wt;
-	}
-
 	public void setWindowType(String w) {
 		if (w.toUpperCase().equals("RECTANGULAR"))
 			windowType = RECTANGULAR;
@@ -50,10 +46,6 @@ public class WindowFunction {
 			windowType = HAMMING;
 		if (w.toUpperCase().equals("BLACKMAN"))
 			windowType = BLACKMAN;
-	}
-
-	public int getWindowType() {
-		return windowType;
 	}
 
 	/**

@@ -51,22 +51,7 @@ public class PairManager{
 		maxPairs=fingerprintProperties.getRefMaxActivePairs();
 		isReferencePairing=true;
 	}
-	
-	/**
-	 * Constructor, number of pairs of robust points depends on the parameter isReferencePairing
-	 * no. of pairs of reference and sample can be different due to environmental influence of source  
-	 * @param isReferencePairing
-	 */
-	public PairManager(boolean isReferencePairing){
-		if (isReferencePairing){
-			maxPairs=fingerprintProperties.getRefMaxActivePairs();
-		}
-		else{
-			maxPairs=fingerprintProperties.getSampleMaxActivePairs();
-		}
-		this.isReferencePairing=isReferencePairing;
-	}
-	
+
 	/**
 	 * Get a pair-positionList table
 	 * It's a hash map which the key is the hashed pair, and the value is list of positions

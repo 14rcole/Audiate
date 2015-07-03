@@ -146,26 +146,6 @@ public class Wave implements Serializable{
 	}
 
 	/**
-	 * Trim the wave data from beginning
-	 * 
-	 * @param numberOfSample
-	 *            numberOfSample trimmed from beginning
-	 */
-	public void leftTrim(int numberOfSample) {
-		trim(numberOfSample, 0);
-	}
-
-	/**
-	 * Trim the wave data from ending
-	 * 
-	 * @param numberOfSample
-	 *            numberOfSample trimmed from ending
-	 */
-	public void rightTrim(int numberOfSample) {
-		trim(0, numberOfSample);
-	}
-
-	/**
 	 * Trim the wave data
 	 * 
 	 * @param leftTrimSecond
@@ -187,25 +167,17 @@ public class Wave implements Serializable{
 		trim(leftTrimNumberOfSample, rightTrimNumberOfSample);
 	}
 
-	/**
-	 * Trim the wave data from beginning
-	 * 
-	 * @param second
-	 *            Seconds trimmed from beginning
-	 */
-	public void leftTrim(double second) {
-		trim(second, 0);
-	}
-
-	/**
-	 * Trim the wave data from ending
-	 * 
-	 * @param second
-	 *            Seconds trimmed from ending
-	 */
-	public void rightTrim(double second) {
-		trim(0, second);
-	}
+// --Commented out by Inspection START (7/2/15 9:38 PM):
+//	/**
+//	 * Trim the wave data from ending
+//	 *
+//	 * @param second
+//	 *            Seconds trimmed from ending
+//	 */
+//	public void rightTrim(double second) {
+//		trim(0, second);
+//	}
+// --Commented out by Inspection STOP (7/2/15 9:38 PM)
 
 	/**
 	 * Get the wave header
@@ -215,16 +187,7 @@ public class Wave implements Serializable{
 	public WaveHeader getWaveHeader() {
 		return waveHeader;
 	}
-	
-	/**
-	 * Get the wave spectrogram
-	 * 
-	 * @return spectrogram
-	 */
-	public Spectrogram getSpectrogram(){
-		return new Spectrogram(this);
-	}
-	
+
 	/**
 	 * Get the wave spectrogram
 	 * 
