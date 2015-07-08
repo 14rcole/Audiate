@@ -30,22 +30,19 @@ public class WindowFunction {
 	public static final int HAMMING = 3;
 	public static final int BLACKMAN = 4;
 
-	int windowType = 0; // defaults to rectangular window
-
-	public WindowFunction() {
-	}
-
-	public void setWindowType(String w) {
+	public static int setWindowType(String w) {
 		if (w.toUpperCase().equals("RECTANGULAR"))
-			windowType = RECTANGULAR;
+			return RECTANGULAR;
 		if (w.toUpperCase().equals("BARTLETT"))
-			windowType = BARTLETT;
+			return BARTLETT;
 		if (w.toUpperCase().equals("HANNING"))
-			windowType = HANNING;
+			return HANNING;
 		if (w.toUpperCase().equals("HAMMING"))
-			windowType = HAMMING;
+			return HAMMING;
 		if (w.toUpperCase().equals("BLACKMAN"))
-			windowType = BLACKMAN;
+			return BLACKMAN;
+		else
+			return RECTANGULAR;
 	}
 
 	/**
@@ -54,7 +51,8 @@ public class WindowFunction {
 	 * @param nSamples	size of the window
 	 * @return	window in array
 	 */
-	public double[] generate(int nSamples) {
+	public static double[] generate(int nSamples, String type) {
+		int windowType = setWindowType(type);
 		// generate nSamples window function values
 		// for index values 0 .. nSamples - 1
 		int m = nSamples / 2;

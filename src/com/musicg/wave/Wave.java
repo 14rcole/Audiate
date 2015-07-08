@@ -25,8 +25,7 @@ import java.io.Serializable;
 import com.musicg.fingerprint.FingerprintManager;
 import com.musicg.fingerprint.FingerprintSimilarity;
 import com.musicg.fingerprint.FingerprintSimilarityComputer;
-import com.musicg.wave.extension.NormalizedSampleAmplitudes;
-import com.musicg.wave.extension.Spectrogram;
+import com.musicg.dsp.Spectrogram;
 
 /**
  * Read WAVE headers and data from wave input stream
@@ -97,6 +96,8 @@ public class Wave implements Serializable{
 		if (waveHeader.isValid()) {
 			// load data
 			try {
+				System.out.println(Runtime.getRuntime().freeMemory());
+				System.out.println(inputStream.available());
 				data = new byte[inputStream.available()];
 				inputStream.read(data);
 			} catch (IOException e) {
@@ -282,8 +283,29 @@ public class Wave implements Serializable{
 	}
 
 	public double[] getNormalizedAmplitudes() {
-		NormalizedSampleAmplitudes amplitudes=new NormalizedSampleAmplitudes(this);
-		return amplitudes.getNormalizedAmplitudes();
+		double[] normalizedAmplitudes;
+
+		boolean signed=true;
+
+		// usually 8bit is unsigned
+		if (getWaveHeader().getBitsPerSample()==8){
+			signed=false;
+		}
+
+		short[] amplitudes=getSampleAmplitudes();
+		int numSamples = amplitudes.length;
+		int maxAmplitude = 1 << (getWaveHeader().getBitsPerSample() - 1);
+
+		if (!signed){	// one more bit for unsigned value
+			maxAmplitude<<=1;
+		}
+
+		normalizedAmplitudes = new double[numSamples];
+		for (int i = 0; i < numSamples; i++) {
+			normalizedAmplitudes[i] = (double) amplitudes[i] / maxAmplitude;
+		}
+
+		return normalizedAmplitudes;
 	}
 	
 	public byte[] getFingerprint(){		

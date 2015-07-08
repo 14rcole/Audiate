@@ -33,7 +33,7 @@ public class FastFourierTransform {
 	 *            amplitudes of the signal
 	 * @return intensities of each frequency unit: mag[frequency_unit]=intensity
 	 */
-	public double[] getMagnitudes(double[] amplitudes) {
+	public static double[] getMagnitudes(double[] amplitudes) {
 
 		int sampleSize = amplitudes.length;
 

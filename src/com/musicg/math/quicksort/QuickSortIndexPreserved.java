@@ -1,7 +1,7 @@
 package com.musicg.math.quicksort;
 public class QuickSortIndexPreserved {
 	
-	private QuickSort quickSort;
+	private QuickSortInteger quickSort;
 	
 	public QuickSortIndexPreserved(int[] array){
 		quickSort=new QuickSortInteger(array);

@@ -25,12 +25,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.musicg.dsp.Resampler;
 import com.musicg.processor.TopManyPointsProcessorChain;
 import com.musicg.properties.FingerprintProperties;
 import com.musicg.wave.Wave;
-import com.musicg.wave.WaveHeader;
-import com.musicg.wave.extension.Spectrogram;
+import com.musicg.dsp.Spectrogram;
 
 /**
  * Audio fingerprint manager, handle fingerprint operations
@@ -65,22 +63,11 @@ public class FingerprintManager{
 		byte[] fingerprint=new byte[0];
 				
 		// resample to target rate
-		Resampler resampler=new Resampler();
-		int sourceRate = wave.getWaveHeader().getSampleRate();
-        int targetRate = fingerprintProperties.getSampleRate();
-
-       	byte[] resampledWaveData=resampler.reSample(wave.getBytes(), wave.getWaveHeader().getBitsPerSample(), sourceRate, targetRate);
-		
-        // update the wave header
-        WaveHeader resampledWaveHeader=wave.getWaveHeader();
-        resampledWaveHeader.setSampleRate(targetRate);
-        
-        // make resampled wave
-        Wave resampledWave=new Wave(resampledWaveHeader,resampledWaveData);
+			//Removed
         // end resample to target rate
         
 		// get spectrogram's data
-		Spectrogram spectrogram=resampledWave.getSpectrogram(sampleSizePerFrame, overlapFactor);
+		Spectrogram spectrogram=wave.getSpectrogram(sampleSizePerFrame, overlapFactor);
 		double[][] spectorgramData=spectrogram.getNormalizedSpectrogramData();
 		
 		List<Integer>[] pointsLists=getRobustPointList(spectorgramData);

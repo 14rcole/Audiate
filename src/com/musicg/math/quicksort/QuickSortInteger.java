@@ -1,5 +1,5 @@
 package com.musicg.math.quicksort;
-public class QuickSortInteger extends QuickSort{
+public class QuickSortInteger{
 	
 	private int[] indexes;
 	private int[] array;

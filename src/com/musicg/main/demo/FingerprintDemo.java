@@ -21,11 +21,16 @@ import com.musicg.wave.Wave;
 public class FingerprintDemo{
 	
 	public static void main (String[] args){
-		
-		String filename = "Most Beautiful Girl in the Room.wav";
+		System.out.println(Runtime.getRuntime().totalMemory());
+		String filename = "Smallest mbgitr.wav";
 
+		fingerprint(filename);
+	}
+
+	private static void fingerprint(String filename){
 		// create a wave object
-		Wave wave = new Wave("audio_work/songs/"+filename);
+		System.out.println(Runtime.getRuntime().freeMemory());
+		Wave wave = new Wave("Audio/"+filename);
 
 		// get the fingerprint
 		byte[] fingerprint=wave.getFingerprint();
@@ -34,15 +39,8 @@ public class FingerprintDemo{
 		FingerprintManager fingerprintManager=new FingerprintManager();
 		fingerprintManager.saveFingerprintAsFile(fingerprint, "out/"+filename+".fingerprint");
 
-		System.out.println(fingerprint.length);
+		System.out.println("Size (bytes): " + fingerprint.length);
 		// load fingerprint from file
-		byte[] loadedFp=fingerprintManager.getFingerprintFromFile("out/"+filename+".fingerprint");
-		
-		/*
-		// fingerprint bytes checking
-		for (int i=0; i<fingerprint.length; i++){
-			System.out.println(fingerprint[i]+" vs "+loadedFp[i]);
-		}
-		*/
+		//byte[] loadedFp=fingerprintManager.getFingerprintFromFile("out/"+filename+".fingerprint");
 	}
 }
